@@ -59,25 +59,25 @@ namespace Exo101a103_JeuSaladier
         }
         public void SimuletInit()
         {
-                Joueur E1Un = new Joueur("Cric");
-                Joueur E1Deux = new Joueur("Crac");
-                Joueur E1Trois = new Joueur("Croc");
-                List<Joueur> Un = new List<Joueur> { E1Un, E1Deux, E1Trois };
-                Equipe Equipe_A = new Equipe("Un", Un, 10);
-                for(in)
-                Joueur E2Un = new Joueur("Pierre");
-                Joueur E2Deux = new Joueur("Jean");
-                Joueur E2Trois = new Joueur("Jacques");
-                List<Joueur> Deux = new List<Joueur> { E2Un, E2Deux, E2Trois };
-                Equipe Equipe_B = new Equipe("Deux", Deux, 8);
-            
+            Joueur E1Un = new Joueur("Cric");
+            Joueur E1Deux = new Joueur("Crac");
+            Joueur E1Trois = new Joueur("Croc");
+            List<Joueur> Un = new List<Joueur> { E1Un, E1Deux, E1Trois };
+            Equipe Equipe_A = new Equipe("Un", Un, 10);
+            saladier.Add("pet", "repet", "Fido Dido", "Humpty Dumpty");
+
+            Joueur E2Un = new Joueur("Pierre");
+            Joueur E2Deux = new Joueur("Jean");
+            Joueur E2Trois = new Joueur("Jacques");
+            List<Joueur> Deux = new List<Joueur> { E2Un, E2Deux, E2Trois };
+            Equipe Equipe_B = new Equipe("Deux", Deux, 8);
+        }
+
+        public struct Jouer()
+        {
+
+        Console.WriteLine($"Bonjour, Nous sommes a la manche : {}, et {} , C'est a ton tour!");
+
+        }
     }
 }
-   
-
-    public struct Jouer
-    {
-
-    }
-}
-

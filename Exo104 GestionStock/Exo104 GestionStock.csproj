@@ -7,7 +7,7 @@
     <ProjectGuid>{3A09A140-2A93-43CA-8F43-CBD28BFCCDA8}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>Exo104_GestionStock</RootNamespace>
-    <AssemblyName>Exo104_GestionStock</AssemblyName>
+    <AssemblyName>Exo104 GestionStock</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

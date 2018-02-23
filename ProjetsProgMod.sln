@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2027
+VisualStudioVersion = 15.0.27004.2008
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exo011 ConversionMonnaie", "Exo 11 ConversionMonnaie\Exo011 ConversionMonnaie.csproj", "{0BD46009-47BA-43D9-BDEC-B90F952973C7}"
 EndProject
@@ -52,6 +52,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exo095a098 StructCV", "Ex095a98 StructCV\Exo095a098 StructCV.csproj", "{2894E1AC-FF29-40CF-963F-74371F3A414F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exo101a103 JeuSaladier", "Exo101a103 JeuSaladier\Exo101a103 JeuSaladier.csproj", "{41AE5076-B336-4114-B8E0-0372AD497098}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exo104 GestionStock", "Exo104 GestionStock\Exo104 GestionStock.csproj", "{3A09A140-2A93-43CA-8F43-CBD28BFCCDA8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -159,6 +161,10 @@ Global
 		{41AE5076-B336-4114-B8E0-0372AD497098}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{41AE5076-B336-4114-B8E0-0372AD497098}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{41AE5076-B336-4114-B8E0-0372AD497098}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A09A140-2A93-43CA-8F43-CBD28BFCCDA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A09A140-2A93-43CA-8F43-CBD28BFCCDA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A09A140-2A93-43CA-8F43-CBD28BFCCDA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A09A140-2A93-43CA-8F43-CBD28BFCCDA8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
