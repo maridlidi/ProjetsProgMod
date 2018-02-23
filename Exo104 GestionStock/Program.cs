@@ -15,7 +15,7 @@ namespace Exo104_GestionStock
         public int quantite;
         public List<string> reference;
 
-        public arcticle(string NomArcticle, int NumeroArcticle,)
+        public arcticle
         
     }
 
