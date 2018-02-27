@@ -6,27 +6,35 @@ using System.Threading.Tasks;
 
 namespace Exo104_GestionStock
 {
-    public struct arcticle
-    {
-        public string nomArcticle;
-        public int numeroArcticle;
-        public double prixVente;
-        public double prixPrecedent;
-        public int quantite;
-        public List<string> reference;
-
-        public arcticle
-        
-    }
-
-    public struct stock
-    {
-
-    }
     class Program
     {
+        public struct arcticle
+        {
+            public string nomArcticle;
+            public int numeroArcticle;
+            public double prixVente;
+            public double prixPrecedent;
+            public int quantite;
+            public string reference;
+
+            public arcticle(string NomArcticle, int NumeroArcticle, double PrixVente, double PrixPrecedent, int Quantite, string Reference)
+            {
+                nomArcticle = NomArcticle;
+                numeroArcticle = NumeroArcticle;
+                prixVente = PrixVente;
+                prixPrecedent = PrixPrecedent;
+                quantite = Quantite;
+                reference = Reference;
+            }
+
+        }
+
+
         static void Main(string[] args)
         {
+       
         }
+
     }
+    
 }

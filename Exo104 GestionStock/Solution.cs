@@ -1,0 +1,261 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Exo104_GestionStock
+{
+
+    class Article
+2.    {
+3.        private int numero;
+4.        private string nom;
+5.        private double prix;
+6.        private int quantite;
+7. 
+8.        public int Numero
+9.        {
+10.            get { return numero; }
+11.            set { numero = value; }
+12.        }
+13.       
+14.        public string Nom
+15.        {
+16.            get { return nom; }
+17.            set { nom = value; }
+18.        }
+19.        
+20.        public double Prix
+21.        {
+22.            get { return prix; }
+23.            set { prix = value; }
+24.        }
+25.        
+26.        public int Quantite
+27.        {
+28.            get { return quantite; }
+29.            set { quantite = value; }
+30.        }
+31. 
+32. 
+33.        public Article() { }
+34.        public Article(int n, string no, double p, int q)
+35.        {
+36.            numero = n;
+37.            nom = no;
+38.            prix = p;
+39.            quantite = q;
+40.        }
+41.        public override string ToString()
+42.        {
+43.            return "\r\nNuméro: " + numero + "\r\nNom: " + nom + "\r\nPrix: " + prix + "\r\nQuantité: " + quantite;
+44.        }
+45.    }
+}
+    class Program
+2.    {
+3.        static int Rechercher(List<Article> L, int r)             //fonction qui permet de vérifier l'existence d'un article
+4.        {
+5.            int p = -1;
+6.            for(int i=0;i<L.Count;i++)
+7.            {
+8.                if(L[i].Numero==r)
+9.                {
+10.                    p=i;
+11.                    break;
+12.                }
+13.            }
+14.            return p;
+15.        }
+16.        static void Main(string[] args)
+17.        {
+18.            int choix, num, quantite, p;
+19.            double prix;
+20.            string nom;
+21.            List<Article> Stock = new List<Article>();
+22.            do
+23.            {
+24.                Console.Out.WriteLine("*******************************Menu*****************************");
+25.                Console.Out.WriteLine("1-Rechercher un article par numéro");
+26.                Console.Out.WriteLine("2-Ajouter un article");
+27.                Console.Out.WriteLine("3-Supprimer un article par numéro");
+28.                Console.Out.WriteLine("4-Modifier un article par numéro");
+29.                Console.Out.WriteLine("5-Rechercher un article par nom");
+30.                Console.Out.WriteLine("6-Rechercher un article par intervalle de prix de vente");
+31.                Console.Out.WriteLine("7-Afficher tous les articles");
+32.                Console.Out.WriteLine("8-Quitter");
+33.                Console.Out.Write("Donner votre choix: ");
+34.                choix = int.Parse(Console.In.ReadLine());
+35.                switch (choix)
+36.                {
+37.                    case 1:
+38.                        Console.Out.Write("Donner le numéro de l'article à rechercher: ");
+39.                        num = int.Parse(Console.In.ReadLine());
+40.                        p = Rechercher(Stock, num);
+41.                        if (p == -1)
+42.                        {
+43.                            Console.Out.WriteLine("article est introuvable");
+44.                        }
+45.                        else
+46.                        {
+47.                            Console.Out.WriteLine(Stock[p]);
+48.                        }
+49.                        break;
+50. 
+51.                    case 2:
+52.                        Console.Out.Write("Donner le numéro de l'article à ajouter: ");
+53.                        num = int.Parse(Console.In.ReadLine());
+54.                        p = Rechercher(Stock, num);
+55.                        if (p != -1)
+56.                        {
+57.                            Console.Out.WriteLine("Article existe dèjà");
+58.                        }
+59.                        else
+60.                        {
+61.                            Console.Out.Write("Donner le nom : ");
+62.                            nom = Console.In.ReadLine();
+63.                            Console.Out.Write("Donner le prix: ");
+64.                            prix = double.Parse(Console.In.ReadLine());
+65.                            Console.Out.Write("Donner la quantité: ");
+66.                            quantite = int.Parse(Console.In.ReadLine());
+67.                            Stock.Add(new Article(num, nom, prix, quantite));
+68.                            Console.Out.WriteLine("Article Ajouté avec succès");
+69.                        }
+70.                        break;
+71. 
+72.                    case 3:
+73.                        Console.Out.Write("Donner le numéro de l'article à supprimer:");
+74.                        num = int.Parse(Console.In.ReadLine());
+75.                        p = Rechercher(Stock, num);
+76.                        if (p == -1)
+77.                        {
+78.                            Console.Out.WriteLine("Article introuvable");
+79.                        }
+80.                        else
+81.                        {
+82.                            //Stock.Remove(Stock[p]);
+83.                            Stock.RemoveAt(p);
+84.                            Console.Out.WriteLine("Article supprimé avec succès");
+85.                        }
+86.                        break;
+87. 
+88.                    case 4:
+89.                        Console.Out.Write("Entrer le numéro de l'article à modifier: ");
+90.                        num = int.Parse(Console.In.ReadLine());
+91.                        p = Rechercher(Stock, num);
+92.                        if (p == -1)
+93.                        {
+94.                            Console.Out.WriteLine("Article introuvable");
+95.                        }
+96.                        else
+97.                        {   //Proposer un sous menu pour choisir l'attribut à modifier
+98.                            int c;
+99.                            do
+100.                            {
+101.                                Console.Out.WriteLine("*****Options*****");
+102.                                Console.Out.WriteLine("1-Modifier le nom");
+103.                                Console.Out.WriteLine("2-Modifier le prix");
+104.                                Console.Out.WriteLine("3-Modifier la quantité");
+105.                                Console.Out.WriteLine("4-Terminer");
+106.                                Console.Out.Write("Donner votre choix: ");
+107.                                c = int.Parse(Console.In.ReadLine());
+108.                                switch (c)
+109.                                {
+110.                                    case 1:
+111.                                        Console.Out.Write("Donner le nouveau nom: ");
+112.                                        Stock[p].Nom = Console.In.ReadLine();
+113.                                        Console.Out.WriteLine("Nom modifié avec succès");
+114.                                        break;
+115.                                    case 2:
+116.                                        Console.Out.Write("Donner le prix: ");
+117.                                        Stock[p].Prix = double.Parse(Console.In.ReadLine());
+118.                                        Console.Out.WriteLine("Prix modifié avec succès");
+119.                                        break;
+120.                                    case 3:
+121.                                        Console.Out.Write("Donner la quantité: ");
+122.                                        Stock[p].Quantite = int.Parse(Console.In.ReadLine());
+123.                                        Console.Out.WriteLine("Quantité modifiée avec succès");
+124.                                        break;
+125.                                    case 4:
+126.                                        Console.Out.WriteLine("Modifications terminées");
+127.                                        break;
+128.                                    default:
+129.                                        Console.Out.WriteLine("Choix invalide");
+130.                                        break;
+131.                                }
+132. 
+133.                            }
+134.                            while (c != 4);
+135.                        }
+136.                        break;
+137. 
+138.                    case 5:
+139.                        Console.Out.Write("Donner le nom de l'article à rechercher: ");
+140.                        nom = Console.In.ReadLine();
+141.                        int comp = 0;
+142.                        for (int i = 0; i<Stock.Count; i++)
+143.                        {
+144.                            if (Stock[i].Nom.ToLower() == nom.ToLower())
+145.                            {
+146.                                Console.Out.Write(Stock[i].ToString());
+147.                                comp++;
+148.                            }
+149.                        }
+150.                        if (comp == 0)
+151.                        {
+152.                            Console.Out.WriteLine("Aucun résultat");
+153.                        }
+154.                        break;
+155.                    case 6:
+156.                        double min, max; int cpt = 0;
+157.                        Console.Out.Write("Donner le prix min :");
+158.                        min = double.Parse(Console.In.ReadLine());
+159.                        Console.Out.Write("Donner le prix max: ");
+160.                        max = double.Parse(Console.In.ReadLine());
+161.                        if (min< 0 || max< 0 || min> max)
+162.                        {
+163.                            Console.Out.WriteLine("Intervalle invalide");
+164.                        }
+165.                        else
+166.                        {
+167.                            for (int i = 0; i<Stock.Count; i++)
+168.                            {
+169.                                if (Stock[i].Prix >= min && Stock[i].Prix <= max)
+170.                                {
+171.                                    cpt++;
+172.                                    Console.Out.WriteLine(Stock[i]);
+173.                                }
+174.                            }
+175.                            if (cpt == 0)
+176.                            {
+177.                                Console.Out.WriteLine("Aucun résultat");
+178.                            }
+179.                        }
+180.                        break;
+181.                    case 7:
+182.                        foreach (Article a in Stock)
+183.                        {
+184.                            Console.Out.WriteLine(a);
+185.                        }
+186.                        if (Stock.Count == 0)
+187.                        {
+188.                            Console.Out.WriteLine("Aucun résultat");
+189.                        }
+190.                        break;
+191.                    case 8:
+192.                        Console.Out.WriteLine("Fin du programme");
+193.                        break;
+194.                    default:
+195.                        Console.Out.WriteLine("Choix invalide");
+196.                        break;
+197. 
+198.                }
+199.            } while (choix != 8);
+200.            Console.ReadKey();
+201.            
+202.        }
+203.    }
+//Source : www.exelib.net
+
+

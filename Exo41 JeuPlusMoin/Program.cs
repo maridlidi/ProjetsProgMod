@@ -16,27 +16,50 @@ namespace Exo41_JeuPlusMoin
         {
             Console.WriteLine("Donner un nombre.");
             int reponse = int.Parse(Console.ReadLine());
-            int[] DemanderIntervalle = new int[] { 1, (reponse) };
+            int[] DemanderIntervalle = new int[] { 1, reponse };
             return DemanderIntervalle;
         }
-        public static int DemanderNombreEssais(int NombreEssais)
+        public static int DemanderNombreEssais()
         {
-            Console.WriteLine("Dites en combien d'essais vous pensez trouver le nombre?");
+            Console.WriteLine("Dites en combien d'essais vous pensez trouver le nombre ? ");
             int DemanderNombreEssais = int.Parse(Console.ReadLine());
             return DemanderNombreEssais;
         }
-        public static int GenererAleatoire(int[] intervalle)
+        public static int GenererAleatoire(int[] DemanderIntervalle)
         {
-            Random aleatoire=new Random();
-           int[] intervalle= aleatoire.Next(1, (int[] DemanderIntervalle));
+            Random aleatoire = new Random();
+            int genererAleatoire = aleatoire.Next(DemanderIntervalle[0], DemanderIntervalle[1]);
+            return genererAleatoire;
         }
         public static void DemanderNombreADeviner(int NombreEssais)
         {
-            int nombreEssais = int.Parse(Console.ReadLine());
+            int[] intervalle = DemanderIntervalle();
+            int NombreADeviner=GenererAleatoire(intervalle);
+            bool trouve=false;
+            while(NombreEssais != 0 & !trouve)
+            {
+                NombreEssais--;
+                Console.WriteLine("Dite un nombre");
+                int reponse = int.Parse(Console.ReadLine());
+                if (NombreADeviner<reponse)
+                {
+                    Console.WriteLine("C'est moin!");
+                }
+                else if(NombreADeviner>reponse)
+                {
+                    Console.WriteLine("C'est plus!");
+                }
+                else
+                {
+                    trouve = true;
+                }
+            }
+
+            FeleciterOuPas(trouve, NombreADeviner);
         }
         public static void FeleciterOuPas(bool NombreTrouve, int NombreADeviner)
         {
-            if(NombreTrouve==true)
+            if(NombreTrouve)
             {
                 Console.WriteLine("Felicitation, tu as trouve!");
             }
@@ -47,7 +70,9 @@ namespace Exo41_JeuPlusMoin
         }
         static void Main(string[] args)
         {
-
+            
+            int nombreEssais=DemanderNombreEssais();
+            DemanderNombreADeviner(nombreEssais);
         }
     }
 }

@@ -10,17 +10,18 @@ namespace Exo101a103_JeuSaladier
     {
         public Equipe Equipe_A;
         public Equipe Equipe_B;
-        public int mancheactuelle;
+        public int MancheActuelle;
         public List<string> saladier;
-        public List<string> motsrestants;
+        public List<string> MotsRestants;
         public int NbJoueurEquipe_A;
         public int NbJoueurEquipe_B;
+        
 
 
         public void init()
         {
             saladier = new List<string>();
-            motsrestants = new List<string>();
+            MotsRestants = new List<string>();
 
             Console.WriteLine("Quel est le nom de la premiere equipe.");
             Equipe_A.nom = Console.ReadLine();
@@ -64,20 +65,51 @@ namespace Exo101a103_JeuSaladier
             Joueur E1Trois = new Joueur("Croc");
             List<Joueur> Un = new List<Joueur> { E1Un, E1Deux, E1Trois };
             Equipe Equipe_A = new Equipe("Un", Un, 10);
-            saladier.Add("pet", "repet", "Fido Dido", "Humpty Dumpty");
-
+            List<string> saladierEquipe_A = new List<string>();
+            string[] A1 = { "Atchoum", "Dormeur", "Grincheux", "Joyeux", "Simplet", "Timide" };
+            foreach (string sx in A1)
+            {
+                saladierEquipe_A.Add(sx);
+            }
+            string[] A2 = { "Tornade", "Furie", "Fringant", "Comete", "Tonnerre", "Eclair" };
+            foreach (string sx in A2)
+            {
+                saladierEquipe_A.Add(sx);
+            }
+            string[] A3 = { "Grand Schtroumpf", "Schtroumpf a lunette", "Schtroumpfette", "Schtroumpf Grognon", "Gargamel", "Azrael" };
+            foreach (string sx in A3)
+            {
+                saladierEquipe_A.Add(sx);
+            }
             Joueur E2Un = new Joueur("Pierre");
             Joueur E2Deux = new Joueur("Jean");
             Joueur E2Trois = new Joueur("Jacques");
             List<Joueur> Deux = new List<Joueur> { E2Un, E2Deux, E2Trois };
             Equipe Equipe_B = new Equipe("Deux", Deux, 8);
+            string[] B1 = { "", "", "", "", "", "" };
+            foreach (string sx in B1)
+            {
+                saladierEquipe_A.Add(sx);
+            }
+            string[] B2 = { "", "", "", "", "", "" };
+            foreach (string sx in B2)
+            {
+                saladierEquipe_A.Add(sx);
+            }
+            string[] B3 = { "", "", "", "", "", "" };
+            foreach (string sx in B3)
+            {
+                saladierEquipe_A.Add(sx);
+            }
         }
-
-        public struct Jouer()
+        public string PreleverMots()
         {
-
-        Console.WriteLine($"Bonjour, Nous sommes a la manche : {}, et {} , C'est a ton tour!");
-
+            string reponse = "S";
+            int CompteurMots = 0;
+            if (reponse == "S" || CompteurMots >= 5)
+            {
+                if (Eq)
+            }
         }
     }
 }

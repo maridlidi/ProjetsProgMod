@@ -55,6 +55,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exo101a103 JeuSaladier", "E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exo104 GestionStock", "Exo104 GestionStock\Exo104 GestionStock.csproj", "{3A09A140-2A93-43CA-8F43-CBD28BFCCDA8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetFinal JeuInteractifConsole", "ProjetFinal JeuInteractifConsole\ProjetFinal JeuInteractifConsole.csproj", "{3900D4D3-1509-443E-89A3-3EEA69FDF198}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{ECC64058-27A1-480F-A27B-6E1E19CAE253}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -165,6 +169,14 @@ Global
 		{3A09A140-2A93-43CA-8F43-CBD28BFCCDA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A09A140-2A93-43CA-8F43-CBD28BFCCDA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A09A140-2A93-43CA-8F43-CBD28BFCCDA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3900D4D3-1509-443E-89A3-3EEA69FDF198}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3900D4D3-1509-443E-89A3-3EEA69FDF198}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3900D4D3-1509-443E-89A3-3EEA69FDF198}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3900D4D3-1509-443E-89A3-3EEA69FDF198}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECC64058-27A1-480F-A27B-6E1E19CAE253}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECC64058-27A1-480F-A27B-6E1E19CAE253}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECC64058-27A1-480F-A27B-6E1E19CAE253}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECC64058-27A1-480F-A27B-6E1E19CAE253}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

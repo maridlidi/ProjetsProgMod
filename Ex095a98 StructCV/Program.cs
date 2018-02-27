@@ -82,15 +82,14 @@ namespace Ex095a98_StructCV
 
             foreach (Ecole E in Personne2.ecoles)
             {
-                TotalCVAComparer+= E.scoreprestige;
+                TotalCVAComparer += E.scoreprestige;
             }
             TotalCVAComparer += Personne2.experiencesprofessionnels.Count * 5;
-
-            foreach(Ecole E in ecoles)
+            foreach (Ecole E in ecoles)
             {
                 TotalScoresCV += E.scoreprestige;
             }
-           TotalScoresCV += experiencesprofessionnels.Count * 5;
+            TotalScoresCV += experiencesprofessionnels.Count * 5;
             if (TotalScoresCV > TotalCVAComparer)
             {
                 return true;
@@ -99,12 +98,35 @@ namespace Ex095a98_StructCV
             {
                 return false;
             }
-
         }
     }
+  
 
     class Program
     {
+        public static CV retourMeilleur(List<CV> Employe)
+        {
+            CV meilleurCV = new CV();
+            int maxScore = 0;
+            for (int i = 0; i < Employe.Count; i++)
+            {
+                int scoreCV = 0;
+
+                foreach (Ecole E in Employe[i].ecoles)
+                {
+                    scoreCV += E.scoreprestige;
+                }
+                scoreCV += Employe[i].experiencesprofessionnels.Count * 5;
+
+
+                if (scoreCV > maxScore)
+                {
+                    maxScore = scoreCV;
+                    meilleurCV = Employe[i];
+                }
+            }
+            return meilleurCV;
+        }
         static void Main(string[] args)
         {
             Ecole Humanis = new Ecole("Humanis", 2017, 2018, 5);

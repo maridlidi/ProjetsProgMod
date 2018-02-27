@@ -14,25 +14,38 @@ namespace Exo65_ToDoListe
     //ELLE RETOURNERA LE NOM DU CLIENT QUI A LA TODO-LIST LA PLUS GRANDE(AVEC LE + D'ÉLÉMENTS)
     class Program
     {
-        public static TrouverUserAvecLePlusDeChoseAFaire(ref Dictionary<string, List<string>> UserToDoList)
+        public static dynamic TrouverUserAvecLePlusDeChoseAFaire(Dictionary<string, List<string>> UserToDoList)
         {
-            int max;
-            foreach (int max in UserToDoList)
-            {
-                max++;
+            string userMax=null;
+            int max = 0;
+            // POUR TOUTES LES KEYVALUEPAIRS DANS MA LISTE
+            foreach(var ligne in UserToDoList)
+            {   // SI LA VALEUR EST PLUS GRANDE QUE CELLE DEFINI
+                if(ligne.Value.Count>max)
+                {
+                    //ALORS LA VALEUR MAX DEVIENT CETTE VALEUR.VALEUR
+                    max = ligne.Value.Count;
+                    // L'UTILISATEUR ASSOCIÉ A CETTE LISTE
+                    userMax = ligne.Key;
+                }
             }
+            return userMax;
         }
         static void Main(string[] args)
         {
-            Dictionary<string, List<string>> UserToDoList1 = new Dictionary<string, List<string>>();
-            Dictionary<string, List<string>> UserToDoList2 = new Dictionary<string, List<string>>();
-            Dictionary<string, List<string>> UserToDoList3 = new Dictionary<string, List<string>>();
-            Dictionary<string, List<string>> UserToDoList4 = new Dictionary<string, List<string>>();
-            UserToDoList1.Add("Marieve", new List<string>() { "faire une ToDo liste", "Envoyer Exo", "Dormir" });
-            UserToDoList2.Add("Cric", new List<string>() { "Compter les moutons" });
-            UserToDoList3.Add("Crac", new List<string>() { "Jouer a saute moutons" });
-            UserToDoList4.Add("Croc", new List<string>() { "Manger les moutons!" });
-
+            Dictionary<string, List<string>> UserToDoList = new Dictionary<string, List<string>>();
+            UserToDoList.Add("Marieve", new List<string>() { "faire une ToDo liste", "Envoyer Exo", "Dormir" });
+            UserToDoList.Add("Cric", new List<string>() { "Compter les moutons" });
+            UserToDoList.Add("Crac", new List<string>() { "Jouer a saute moutons" });
+            UserToDoList.Add("Croc", new List<string>() { "Manger les moutons!" });
+            // AFFICHE TOUS LES USER DU DICTIONARY
+           foreach (string key in UserToDoList.Keys)
+            {
+                Console.WriteLine(key);
+            }
+            Console.WriteLine("Le user avec leplus de choses a faire est : ");
+            // AFFICHE CELUI QUI AS LE PLUS DE CHOSES A FAIRE
+           Console.WriteLine(TrouverUserAvecLePlusDeChoseAFaire(UserToDoList));
         }
     }
 }
