@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Les informations générales relatives à un assembly dépendent de
 // l'ensemble d'attributs suivant. Changez les valeurs de ces attributs pour modifier les informations
 // associées à un assembly.
-[assembly: AssemblyTitle("FonctionRecursive")]
+[assembly: AssemblyTitle("Exo023 FonctionRecursive")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("FonctionRecursive")]
+[assembly: AssemblyProduct("Exo023 FonctionRecursive")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Le GUID suivant est pour l'ID de la typelib si ce projet est exposé à COM
-[assembly: Guid("9bd1efd6-3ebe-47c3-b672-4fe3e3cb4c1e")]
+[assembly: Guid("91758a1b-e88c-4245-9505-b548379562b2")]
 
 // Les informations de version pour un assembly se composent des quatre valeurs suivantes :
 //

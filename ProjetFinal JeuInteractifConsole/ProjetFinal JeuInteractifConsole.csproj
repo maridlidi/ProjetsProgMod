@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3900D4D3-1509-443E-89A3-3EEA69FDF198}</ProjectGuid>
+    <ProjectGuid>{F20017CF-F4C4-4BB5-98CA-0487C198A645}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>ProjetFinal_JeuInteractifConsole</RootNamespace>
     <AssemblyName>ProjetFinal JeuInteractifConsole</AssemblyName>
@@ -42,14 +42,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bonus.cs" />
-    <Compile Include="Combat.cs" />
-    <Compile Include="Noeuds.cs" />
-    <Compile Include="ObjetTenu.cs" />
-    <Compile Include="Personnage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sort.cs" />
+    <Compile Include="Structures\Combat.cs" />
+    <Compile Include="Structures\Noeuds.cs" />
+    <Compile Include="Structures\ObjetTenu.cs" />
+    <Compile Include="Structures\Personnages.cs" />
+    <Compile Include="Structures\Sorts.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9BD1EFD6-3EBE-47C3-B672-4FE3E3CB4C1E}</ProjectGuid>
+    <ProjectGuid>{91758A1B-E88C-4245-9505-B548379562B2}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>FonctionRecursive</RootNamespace>
-    <AssemblyName>FonctionRecursive</AssemblyName>
+    <RootNamespace>Exo023_FonctionRecursive</RootNamespace>
+    <AssemblyName>Exo023 FonctionRecursive</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

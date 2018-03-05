@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FonctionRecursive
+namespace Exo023_FonctionRecursive
 {
-    //RÉALISER UNE FONCTION RÉCURSIVE QUI, A PARTIR D'UN NOMBRE x ET D'UNE PUISSANCE n ,VA CALCULER Xn ET LE RETOURNER.
     class Program
     {
+        //RÉALISER UNE FONCTION RÉCURSIVE QUI, A PARTIR D'UN NOMBRE x ET D'UNE PUISSANCE n ,VA CALCULER Xn ET LE RETOURNER.
         public static int puissance(int nombre, int pow)
         {
             if (pow <= 1)
