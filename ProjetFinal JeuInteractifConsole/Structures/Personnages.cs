@@ -145,15 +145,15 @@ namespace ProjetFinalProgMod.Structures
                     PtsExperience -= SeuilExperience;
                     Niveau++;
                 }
-
+                BoostNiveau();
             }
         }
 
         /* QUAND UN PERSONNAGE GAGNE UN NIVEAU, SES POINTS D'ATTAQUE, DE DEFENSE,
         DE MAGIE ET DE VITESSE SON MULTIPLIER PAR UN FACTEUR CONSTANT. */
-        public void BoostNiveau(ref Personnage Joueur)
+        public void BoostNiveau()
         {
-            for (var x = 0; x < Niveau; x++)
+            
             {
                 PtsAttaque *= 2;
                 PtsDefense *= 2;
@@ -170,11 +170,13 @@ namespace ProjetFinalProgMod.Structures
         }
 
         // METHODE QUI ATTRIBUE LES POINTS DEXPERIENCE OBTENU LORSQUON GAGNE COMBAT
-        public void GagnerExperience(int PointsGagne, ref Personnage adversaire)
+        public void GagnerExperience( Personnage adversaire)
         {
             int pointsGagne = adversaire.ValeurPersoExperience;
-            ValeurPersoExperience += pointsGagne;
+            PtsExperience += pointsGagne;
             ExperienceTotale += pointsGagne;
+            ValeurExperienceCheck();
+            GagnerNiveau();
         }
 
 

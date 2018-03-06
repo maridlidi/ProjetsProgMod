@@ -6,56 +6,61 @@ using System.Threading.Tasks;
 using ProjetFinalProgMod;
 using ProjetFinalProgMod.Structures;
 
+
 namespace ProjetFinalProgMod.Structures
 {
+    //
     public class Noeuds
     {
         public string Intitule;
         public Combat Combat;
-        public Dictionary<string, Noeuds> LienReponseEnfant;
+        public Dictionary<int, string> LienReponseNoeud;
 
-        public Noeuds(string intitule, Combat combat, Dictionary<string, Noeuds> lienReponseEnfants1)
+        public Noeuds(string intitule, Combat combat, Dictionary<int, string> Reponse)
         {
             Intitule = intitule;
             Combat = combat;
-            LienReponseEnfant = lienReponseEnfants1;
+            LienReponseNoeud = Reponse;
         }
 
-        public void ChoixUtilisateur()
+        public void Init(ref Personnage Joueur)
         {
-            string MaReponse;
-            bool EntreeValide = false;
+            
+            if (Combat != null)
+                
             {
-                // AFFICHER LES REPONSES POSSIBLES
-                foreach (string reponse in LienReponseEnfant.Keys.ToList())
+
+                Combat.LancerCombat();   
+            }
+            Console.WriteLine(Intitule);
+        }
+
+        public string ChoixReponse()
+        {
+
+            string rep = null;
+            //AFFICHAGE
+            foreach (var choix in LienReponseNoeud)
+            {
+                Console.WriteLine($"{choix.Key} : {choix.Value}");
+
+            }
+            Console.WriteLine("Quelle est votre reponse?");
+
+
+            {
+                int x = int.Parse(Console.ReadLine());
+                foreach (var Reponse in LienReponseNoeud)
                 {
-                    Console.WriteLine(reponse);
-                }
-                // PRENDRE REPONSE UTILISATEUR
-                MaReponse = Console.ReadLine();
-                //  VERIFIE LA REPONSE UTILISATEUR
-                foreach (string reponse in LienReponseEnfant.Keys.ToList())
-                {
-                    if (MaReponse == reponse)
+
+                    if (x == Reponse.Key)
                     {
-                        EntreeValide = true;
+                        rep = Reponse.Value;
+                        break;
                     }
                 }
-                while (!EntreeValide) ;
             }
-
-            LienReponseEnfant[MaReponse].ChoixUtilisateur();
-
+            return rep;
         }
-
-        /* Console.WriteLine(Intitule);
-             string reponse1 = Console.ReadLine();
-
-             if (!Combat.Equals(default(Combat)))
-             {
-                LancerCombat();
-                 return true;
-             }
-             return false;*/
     }
 }

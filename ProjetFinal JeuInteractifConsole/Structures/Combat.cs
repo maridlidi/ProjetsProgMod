@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ProjetFinalProgMod;
-using ProjetFinalProgMod.Structures;
 
 namespace ProjetFinalProgMod.Structures
 {
@@ -28,9 +22,8 @@ namespace ProjetFinalProgMod.Structures
 
         public void LancerCombat()
         {
-
             Random SortFrappe = new Random();
-            bool Attaque = AttaquePremier(PersonnageJoueur, PersonnageEnnemi);
+            bool Attaque = AttaquePremier();
             // TANT QUE LE JOUEUR OU L'ENNEMI NEST PAS MORT
             while (!PersonnageEnnemi.AmIDead() & !PersonnageJoueur.AmIDead())
             {
@@ -54,6 +47,7 @@ namespace ProjetFinalProgMod.Structures
                     if (x == 1)
                     {
                         PersonnageEnnemi.LancerSort(ref PersonnageJoueur);
+
                     }
                     else
                     {
@@ -63,6 +57,7 @@ namespace ProjetFinalProgMod.Structures
                 if (Attaque) Attaque = false;
                 else Attaque = true;
             }
+            GagnerCombat();
         }
 
         /*CETTE METHODE DOIT FAIRE 3 CHOSES. SI L'ADVERSAIRE A UN OBJET PLUS PUISSANT, ALORS IL DEVIENT NOTRE OBJET.  
@@ -73,9 +68,8 @@ namespace ProjetFinalProgMod.Structures
             if (PersonnageJoueur.AmIDead())
             {
                 // GAME OVER
-                Console.WriteLine("GAME OVER");
-                Console.ReadLine();
-                return PersonnageJoueur;
+                Program.GameOver();
+                return null;
             }
             // LE PERSONNAGE ENNEMI EST MOURU
             else
@@ -112,20 +106,18 @@ namespace ProjetFinalProgMod.Structures
                     }
 
                 }
-                PersonnageJoueur.PtsExperience += PersonnageEnnemi.ValeurPersoExperience;
-                PersonnageJoueur.ExperienceTotale += PersonnageEnnemi.ValeurPersoExperience;
-                PersonnageJoueur.GagnerNiveau();
-                PersonnageJoueur.GagnerExperience();
-                PersonnageJoueur.BoostNiveau();
+               
+                
+                PersonnageJoueur.GagnerExperience(PersonnageEnnemi);
                 return PersonnageJoueur;
             }
         }
 
         /* ELEMENTS A RESPECTER */
         // LORS DE LAPPEL POUR SAVOIR QUI ATTAQUE LE PREMIER, SI(TRUE) JOUEUR ATTAQUE PREMIER
-        public bool AttaquePremier(Personnage persJoueur, Personnage persEnnemi)
+        public bool AttaquePremier()
         {
-            if (persJoueur.PtsVitesse > persEnnemi.PtsVitesse)
+            if (PersonnageJoueur.PtsVitesse > PersonnageEnnemi.PtsVitesse)
             {
                 return true;
             }

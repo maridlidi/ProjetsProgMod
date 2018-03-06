@@ -10,6 +10,11 @@ namespace ProjetFinalProgMod
 {
     class Program
     {
+        static Personnage Hully;
+
+       
+        
+        static Dictionary<string, Noeuds> Histoire = new Dictionary<string, Noeuds>();
         static void Main(string[] args)
         {
             // DETERMINE LA VALEUR DE LA PUISSANCE PAR RAPPORT AU NIVEAU, 10 PAR NIVEAU
@@ -31,51 +36,121 @@ namespace ProjetFinalProgMod
             /*4*/
             ObjetTenu Hache = new ObjetTenu("Hache", "Arme lourde", 5);
 
+
             /*1*/
             Personnage Hully = new Personnage("Orc des bois", "Hully", 100, 10, 4, 7, 10, Couteau);
             Hully.SortsPers.Add(BouleDeFeu);
+
             /*2*/
             Personnage Chantalou = new Personnage("Fée du foyer", "Chantalou", 100, 3, 7, 4, 11, Lance);
             Chantalou.SortsPers.Add(ChuteDEau);
 
             Combat CombatPrincipal = new Combat(Hully, Chantalou);
             Combat SansCombat = new Combat();
+            string d = "Depart!";
+           
+            SansCombat = null;
 
-            Noeuds Noeud5 = new Noeuds("Après des heures de danse, ils vécurent heureux et eurent beaucoup d'enfants!",
-                SansCombat, new Dictionary<string, Noeuds>());
-            Noeuds Noeud6 = new Noeuds("Allez vient on va se battre", CombatPrincipal,
-                new Dictionary<string, Noeuds>());
-            Dictionary<string, Noeuds> Lien456 = new Dictionary<string, Noeuds>();
-            Lien456.Add("Oui", Noeud5);
-            Lien456.Add("Non", Noeud6);
-            Noeuds Noeud4 = new Noeuds("C'était trop bon! On va danser?", SansCombat, Lien456);
-            Dictionary<string, Noeuds> Lien346 = new Dictionary<string, Noeuds>();
-            Lien346.Add("Oui", Noeud4);
-            Lien346.Add("Non", Noeud6);
-            Noeuds Noeud3 = new Noeuds("Super! On arrête manger quelquepart?", SansCombat, Lien346);
-            Dictionary<string, Noeuds> Lien236 = new Dictionary<string, Noeuds>();
-            Lien236.Add("Oui", Noeud3);
-            Lien236.Add("Non", Noeud6);
-            Noeuds Noeud2 = new Noeuds("Tu veux qu'on voyage ensemble?", SansCombat, Lien236);
-            Dictionary<string, Noeuds> Lien126 = new Dictionary<string, Noeuds>();
-            Lien126.Add("Oui", Noeud2);
-            Lien126.Add("Non", Noeud6);
-            Noeuds Noeud1 = new Noeuds("Bonjour! Comment allez vous?", SansCombat, Lien126);
+            
+            /*1er Noeud*/
+            Histoire.Add("Depart!",
+      new Noeuds("Bonjour! Comment allez vous?",
+      null,
+      new Dictionary<int, string>()
+      {
+                    { 1 , "Bien" },
+                    { 2, "Bagarre!!!!" }
+      }));
+            /*2ieme Noeud*/
+            Histoire.Add("Bien",
+                new Noeuds(
+                    "Tu veux qu'on voyage ensemble?",
+                    null,
+                    new Dictionary<int, string>()
+                    {
+                           { 1, "oui, voyageons ensemble!" },
+                           { 2, "Bagarre!!!!" }
+                    }
+                    ));
+         /*3ieme Noeud*/Histoire.Add("oui, voyageons ensemble!",
+                new Noeuds("Super! On arrête manger quelquepart ? ",
+                null,
+                new Dictionary<int, string>()
+                {
+                    {1, "oui, allons manger" },
+                    {2, "Bagarre!!!!" }
+                }
+                ));
+            /*4ieme Noeud FIN SANS COMBAT*/
+            Histoire.Add("oui, allons manger",
+                new Noeuds("C'était trop bon! On va danser?",
+                null,
+                new Dictionary<int, string>()
+                {
+                { 1,"oui, Après des heures de danse, ils vécurent heureux et eurent beaucoup d'enfants!" },
+                
+                 }
+                ));
+         /*COMBAT PRINCIPAL*/Histoire.Add("Bagarre!!!!",
+               new Noeuds("Bagarre!!!!",
+               CombatPrincipal,
+               new Dictionary<int, string>()
+               { { 1 , "Game Over" }}
+               ));
 
-
-
-
-            /*Console.Clear();
-            Chantalou.AfficherPersonnage();
-            Hully.FrapperAdversaire(ref Chantalou);
-            Chantalou.AfficherPersonnage();
-
-            Console.WriteLine();
-            Hully.AfficherPersonnage();
-            Chantalou.FrapperAdversaire(ref Hully);
-            Hully.AfficherPersonnage();*/
-
+            RouleNoeud(d);
 
         }
+        public static void HappyEnd()
+        {
+            Console.WriteLine("--------------------------------------------------------");
+            Console.WriteLine("-------------------                ---------------------");
+            Console.WriteLine("------------------- TOUT EST BIEN ----------------------");
+            Console.WriteLine("---------------------- QUI FINI ------------------------");
+            Console.WriteLine("----------------------- BIEN!! -------------------------");
+            Console.WriteLine("--------------------------------------------------------");
+            Console.WriteLine("--------------------------------------------------------");
+            Console.ReadLine();
+            Environment.Exit(1);
+        }
+
+        public static void GameOver()
+        {
+            Console.WriteLine("--------------------------------------------------------");
+            Console.WriteLine("--------------------------------------------------------");
+            Console.WriteLine("-----------------------           ----------------------");
+            Console.WriteLine("----------------------- GAME OVER ----------------------");
+            Console.WriteLine("-----------------------           ----------------------");
+            Console.WriteLine("--------------------------------------------------------");
+            Console.WriteLine("--------------------------------------------------------");
+            Console.ReadLine();
+            Environment.Exit(1);
+        }
+        // COMMENCE PAR LA CASE DEPART 
+        public static string RouleNoeud(string x)
+        {
+            if (x == "oui, Après des heures de danse, ils vécurent heureux et eurent beaucoup d'enfants!")
+            {
+                HappyEnd();
+            }
+            if (x == "Game Over")
+            {
+                GameOver();
+            }
+            string NouveauNoeud = null;
+            foreach (var kv in Histoire)
+            {
+                
+                if (x == kv.Key)
+                {
+                    kv.Value.Init(ref Hully);
+                    NouveauNoeud = kv.Value.ChoixReponse();
+                }
+
+            }
+            return RouleNoeud(NouveauNoeud);
+
+        }
+        
     }
 }
